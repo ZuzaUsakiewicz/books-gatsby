@@ -1,22 +1,52 @@
-import React from "react"
+import React, { useState } from "react"
+import styled, { createGlobalStyle } from "styled-components"
+import backgroundImage from "../images/bookbg.jpg"
 import { Link } from "gatsby"
 
-import Layout from "../components/layout"
-import Image from "../components/image"
-import SEO from "../components/seo"
+const GlobalStyle = createGlobalStyle`
+*, *::after, *::before {
+box-sizing: border-box;
+font-family: 'Montserrat', monospace;
+
+}
+body {
+  padding: 0;
+  margin:0;
+  min-height: 100vh;
+  
+}
+`
+
+const StyledWrapper = styled.div`
+  background-image: url(${backgroundImage});
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.2);
+  color: white;
+  height: 100vh;
+`
+const HelloLine = styled.h1`
+  font-size: ${({ isBigger }) => (isBigger ? "60px" : "30px")};
+  ::before {
+    content: "";
+    width: 100px;
+    height: 10px;
+    display: block;
+    background: white;
+  }
+`
 
 const IndexPage = () => (
-  <Layout>
-    <SEO title="Home" />
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
-      <Image />
-    </div>
-    <Link to="/page-2/">Go to page 2</Link> <br />
-    <Link to="/using-typescript/">Go to "Using TypeScript"</Link>
-  </Layout>
+  <>
+    <GlobalStyle />
+    <StyledWrapper>
+      <Link to="/page-2">Click here</Link>
+      <HelloLine isBigger>Change me</HelloLine>
+      <HelloLine> looo</HelloLine>
+    </StyledWrapper>
+  </>
 )
 
 export default IndexPage
