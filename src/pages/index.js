@@ -27,24 +27,12 @@ const StyledWrapper = styled.div`
   color: white;
   height: 100vh;
 `
-const HelloLine = styled.h1`
-  font-size: ${({ isBigger }) => (isBigger ? "60px" : "30px")};
-  ::before {
-    content: "";
-    width: 100px;
-    height: 10px;
-    display: block;
-    background: white;
-  }
-`
 
 const IndexPage = () => (
   <>
     <GlobalStyle />
     <StyledWrapper>
       <Link to="/page-2">Click here</Link>
-      <HelloLine isBigger>Change me</HelloLine>
-      <HelloLine> looo</HelloLine>
     </StyledWrapper>
   </>
 )

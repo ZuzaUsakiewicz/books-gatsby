@@ -3,7 +3,7 @@ import { Link } from "gatsby"
 import styled from "styled-components"
 
 const SecondPageWrapper = styled.div`
-  background: red;
+  padding: 20px;
 `
 
 const SecondPage = () => (
