@@ -9,7 +9,7 @@ html, *, *::before, *::after {
  padding: 0;
 }
   body {
-    background-color: rgb(0, 0, 20);
+    background-color: rgb(246, 246, 252);
   }
   button {
     cursor: pointer;
