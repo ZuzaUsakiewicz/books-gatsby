@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
-    title: `Open Library`,
-    description: `Libraries appreciation website`,
+    title: `Read books`,
+    description: `Books appreciation website`,
     author: `Zuza`,
   },
   plugins: [
