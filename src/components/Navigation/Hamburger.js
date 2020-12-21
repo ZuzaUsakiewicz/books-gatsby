@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import Menu from "./Menu"
-import { Burger, Bar } from "../styles/Navigation.styled"
+import { Burger } from "../styles/Navigation.styled"
 
 const Hamburger = () => {
   const [open, setOpen] = useState(false)

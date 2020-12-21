@@ -10,7 +10,9 @@ export const Nav = styled.nav`
   width: 100%;
   padding: 10px 40px;
   height: 80px;
-  background: rebeccapurple;
+  background: ${({ backgroundScroll }) =>
+    backgroundScroll ? "rebeccapurple" : "transparent"};
+
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -19,6 +21,7 @@ export const Nav = styled.nav`
   left: 0;
   right: 0;
   z-index: 997;
+  transition: background 0.4s ease-in-out;
 `
 export const MenuContainer = styled.div`
   width: 50%;
@@ -31,6 +34,7 @@ export const NavigationList = styled.ul`
   justify-content: space-evenly;
   align-items: center;
   padding: 20px 0;
+
   @media screen and (max-width: 768px) {
     padding-top: 100px;
     margin: 0;
@@ -51,7 +55,9 @@ export const NavigationList = styled.ul`
 `
 
 export const NavLink = styled(Link)`
-  color: white;
+  color: ${({ link, theme }) => (link ? theme.colors.main : theme.colors.link)};
+  border-bottom: 6px solid transparent;
+  transition: color 0.3s ease-in;
   @media screen and (max-width: 768px) {
     padding: 10px 0;
     margin: 10px;
