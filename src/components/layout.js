@@ -1,6 +1,7 @@
 import React from "react"
-import { createGlobalStyle } from "styled-components"
-
+import { createGlobalStyle, ThemeProvider } from "styled-components"
+import { theme } from "../utils/theme"
+import Navbar from "../components/Navigation/Navbar"
 const GlobalStyle = createGlobalStyle`
 
 html, *, *::before, *::after {
@@ -10,6 +11,7 @@ html, *, *::before, *::after {
 }
   body {
     background-color: rgb(246, 246, 252);
+    min-height: 200vh;
   }
   button {
     cursor: pointer;
@@ -18,13 +20,15 @@ html, *, *::before, *::after {
     text-shadow: none;
     background-image: none;
   }
+ 
 `
 
 export default function Layout({ children }) {
   return (
-    <>
-      <GlobalStyle theme="dark" />
+    <ThemeProvider theme={theme}>
+      <GlobalStyle />
       {children}
-    </>
+      <Navbar />
+    </ThemeProvider>
   )
 }
