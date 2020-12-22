@@ -28,24 +28,16 @@ const Menu = ({ open }) => {
         <NavLink
           link={link}
           to="/"
-          activeStyle={{
-            borderBottom: "6px solid blue",
-          }}
+          // activeStyle={{
+          //   borderBottom: "6px solid #0d0d35",
+          // }}
         >
           Home
         </NavLink>
-        <NavLink
-          link={link}
-          to="/about"
-          activeStyle={{ borderBottom: "6px solid blue" }}
-        >
+        <NavLink link={link} to="/about">
           About
         </NavLink>
-        <NavLink
-          link={link}
-          to="/contact"
-          activeStyle={{ borderBottom: "6px solid blue" }}
-        >
+        <NavLink link={link} to="/contact">
           Contact
         </NavLink>
       </NavigationList>
