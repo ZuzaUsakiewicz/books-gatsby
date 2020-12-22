@@ -10,9 +10,8 @@ export const Nav = styled.nav`
   width: 100%;
   padding: 10px 40px;
   height: 80px;
-  background: ${({ backgroundScroll }) =>
-    backgroundScroll ? "rebeccapurple" : "transparent"};
-
+  background: ${({ backgroundScroll, theme }) =>
+    backgroundScroll ? theme.colors.navbarColor : "transparent"};
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -22,6 +21,9 @@ export const Nav = styled.nav`
   right: 0;
   z-index: 997;
   transition: background 0.4s ease-in-out;
+  @media screen and (max-width: 768px) {
+    background-color: ${({ theme }) => theme.colors.navbarColor};
+  }
 `
 export const MenuContainer = styled.div`
   width: 50%;
@@ -40,7 +42,7 @@ export const NavigationList = styled.ul`
     margin: 0;
     flex-direction: column;
     justify-content: flex-start;
-    background-color: rebeccapurple;
+    background-color: ${({ theme }) => theme.colors.navbarColor};
     position: fixed;
     top: 80px;
     right: 0;
@@ -62,12 +64,12 @@ export const NavLink = styled(Link)`
     padding: 10px 0;
     margin: 10px;
     font-size: 60px;
+    color: ${({ theme }) => theme.colors.main};
   }
   @media (max-width: 700px) and (orientation: landscape) {
     font-size: 20px;
   }
 `
-
 export const Burger = styled.div`
   width: 2rem;
   height: 2rem;
