@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import { Link } from "gatsby"
+import AniLink from "gatsby-plugin-transition-link/AniLink"
 import { GiBookmark } from "react-icons/gi"
 
 export const Logo = styled(GiBookmark)`
@@ -56,7 +56,7 @@ export const NavigationList = styled.ul`
   }
 `
 
-export const NavLink = styled(Link)`
+export const NavLink = styled(AniLink)`
   color: ${({ link, theme }) => (link ? theme.colors.main : theme.colors.link)};
   border-bottom: 6px solid transparent;
   transition: color 0.3s ease-in;

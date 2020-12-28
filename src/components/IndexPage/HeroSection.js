@@ -4,8 +4,7 @@ import { HeroContainer } from "../styles/HeroSection.styled"
 const HeroSection = () => {
   return (
     <HeroContainer>
-      {" "}
-      <h1>hello</h1>{" "}
+      <h1>hello</h1>
     </HeroContainer>
   )
 }

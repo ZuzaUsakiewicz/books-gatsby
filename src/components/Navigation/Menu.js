@@ -27,6 +27,7 @@ const Menu = ({ open }) => {
       <NavigationList open={open}>
         <NavLink
           link={link}
+          fade
           to="/"
           // activeStyle={{
           //   borderBottom: "6px solid #0d0d35",
@@ -34,10 +35,10 @@ const Menu = ({ open }) => {
         >
           Home
         </NavLink>
-        <NavLink link={link} to="/about">
+        <NavLink fade to="/about" link={link}>
           About
         </NavLink>
-        <NavLink link={link} to="/contact">
+        <NavLink fade to="/contact" link={link}>
           Contact
         </NavLink>
       </NavigationList>
