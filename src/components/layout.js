@@ -8,6 +8,21 @@ html, *, *::before, *::after {
  box-sizing: border-box;
  margin: 0;
  padding: 0;
+ scrollbar-width: auto;
+scrollbar-color: rgb(12, 12, 37) rgb(104, 159, 241);
+}
+*::-webkit-scrollbar {
+  width: 20px;
+}
+
+*::-webkit-scrollbar-track {
+  background: rgb(80, 122, 185);
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: rgb(22, 22, 90);
+  border-radius: 20px;
+  border: 3px solid rgb(26, 43, 70);
 }
   body {
     background-color: rgb(246, 246, 252);
