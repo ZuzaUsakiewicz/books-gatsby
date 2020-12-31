@@ -1,5 +1,6 @@
 import styled from "styled-components"
 import AniLink from "gatsby-plugin-transition-link/AniLink"
+
 import { GiBookmark } from "react-icons/gi"
 
 export const Logo = styled(GiBookmark)`
