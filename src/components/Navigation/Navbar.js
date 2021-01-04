@@ -21,8 +21,8 @@ const Navbar = () => {
   }, [])
   return (
     <Nav backgroundScroll={backgroundScroll}>
-      <Logo />
-      <Hamburger />
+      <Logo backgroundScroll={backgroundScroll} />
+      <Hamburger backgroundScroll={backgroundScroll} />
     </Nav>
   )
 }

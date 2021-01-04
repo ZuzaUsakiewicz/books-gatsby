@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react"
+import React, { useState } from "react"
+import { GiNinjaMask } from "react-icons/gi"
 import { Burger } from "../styles/Navigation.styled"
 import {
   MenuContainer,
@@ -6,29 +7,14 @@ import {
   NavLink,
 } from "../styles/Navigation.styled"
 
-const Hamburger = () => {
+const Hamburger = ({ backgroundScroll }) => {
   const [open, setOpen] = useState(false)
-  const [link, setLink] = useState(false)
 
   const toggleOpen = () => {
     setOpen(!open)
   }
   const close = () => setOpen(false)
 
-  const changeLink = () => {
-    if (window.scrollY > 40) {
-      setLink(true)
-    } else {
-      setLink(false)
-    }
-  }
-
-  useEffect(() => {
-    window.addEventListener("scroll", changeLink)
-    return () => {
-      window.removeEventListener("scroll", changeLink)
-    }
-  }, [])
   return (
     <>
       <Burger open={open} onClick={toggleOpen}>
@@ -38,14 +24,45 @@ const Hamburger = () => {
       </Burger>
       <MenuContainer>
         <NavigationList open={open}>
-          <NavLink fade to="/" link={link} onClick={() => close()}>
+          <NavLink
+            paintDrip
+            to="/"
+            hex="#000"
+            duration={1}
+            onClick={() => close()}
+            backgroundScroll={backgroundScroll}
+          >
             Home
           </NavLink>
-          <NavLink fade to="/about" link={link} onClick={() => close()}>
+          <NavLink
+            paintDrip
+            to="/books"
+            hex="#000"
+            duration={1}
+            onClick={() => close()}
+            backgroundScroll={backgroundScroll}
+          >
+            Books
+          </NavLink>
+          <NavLink
+            paintDrip
+            to="/about"
+            hex="#000"
+            duration={1}
+            onClick={() => close()}
+            backgroundScroll={backgroundScroll}
+          >
             About
           </NavLink>
-          <NavLink fade to="/contact" link={link} onClick={() => close()}>
-            Contact
+          <NavLink
+            paintDrip
+            to="/contact"
+            hex="#000"
+            duration={1}
+            onClick={() => close()}
+            backgroundScroll={backgroundScroll}
+          >
+            <GiNinjaMask />
           </NavLink>
         </NavigationList>
       </MenuContainer>
