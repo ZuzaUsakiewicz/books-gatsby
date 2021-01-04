@@ -1,10 +1,18 @@
 import styled from "styled-components"
 import AniLink from "gatsby-plugin-transition-link/AniLink"
+import { GiEvilBook } from "react-icons/gi"
 
-import { GiBookmark } from "react-icons/gi"
-
-export const Logo = styled(GiBookmark)`
-  font-size: 32px;
+export const Logo = styled(GiEvilBook)`
+  font-size: 40px;
+  cursor: pointer;
+  transform: ${({ backgroundScroll }) =>
+    backgroundScroll ? "scale(0.7) rotate(360deg)" : "scale(1) rotate(0)"};
+  color: ${({ theme }) => theme.colors.link};
+  transition: transform 0.4s ease-in;
+  @media screen and (max-width: 768px) {
+    transform: ${({ backgroundScroll }) =>
+      backgroundScroll ? "scale(1) rotate(360deg)" : "scale(0.8) rotate(0)"};
+  }
 `
 
 export const Nav = styled.nav`
@@ -21,13 +29,15 @@ export const Nav = styled.nav`
   left: 0;
   right: 0;
   z-index: 997;
-  transition: background 0.4s ease-in-out;
+  box-shadow: ${({ backgroundScroll, theme }) =>
+    backgroundScroll ? theme.boxShadow.main : ""};
+  transition: background-color 0.6s ease-in-out, box-shadow 0.6s ease-in-out;
   @media screen and (max-width: 768px) {
     background-color: ${({ theme }) => theme.colors.navbarColor};
   }
 `
 export const MenuContainer = styled.div`
-  width: 50%;
+  width: 60%;
   height: 80px;
 `
 export const NavigationList = styled.ul`
@@ -49,7 +59,7 @@ export const NavigationList = styled.ul`
     right: 0;
     left: 0;
     height: 100vh;
-    transition: transform 0.3s ease-in-out;
+    transition: transform 0.5s ease-in-out;
     transform: ${({ open }) => (open ? "translateX(0)" : "translateX(100%)")};
   }
   @media (max-width: 700px) and (orientation: landscape) {
@@ -58,14 +68,21 @@ export const NavigationList = styled.ul`
 `
 
 export const NavLink = styled(AniLink)`
-  color: ${({ link, theme }) => (link ? theme.colors.main : theme.colors.link)};
+  font-size: 35px;
+  color: ${({ theme }) => theme.colors.link};
   border-bottom: 6px solid transparent;
-  transition: color 0.3s ease-in;
+  transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
+  transform: ${({ backgroundScroll }) =>
+    backgroundScroll ? "scale(0.7)" : "scale(1)"};
+  text-transform: uppercase;
+  font-style: italic;
+  font-weight: bolder;
   @media screen and (max-width: 768px) {
     padding: 10px 0;
     margin: 10px;
     font-size: 60px;
     color: ${({ theme }) => theme.colors.main};
+    transform: scale(1);
   }
   @media (max-width: 700px) and (orientation: landscape) {
     font-size: 20px;
@@ -82,7 +99,7 @@ export const Burger = styled.div`
   div {
     width: 2rem;
     height: 0.25rem;
-    background-color: rgb(0, 0, 0);
+    background-color: rgb(173, 173, 173);
     transform-origin: 1px;
     transition: all 0.3s ease-in-out;
     z-index: 999;
