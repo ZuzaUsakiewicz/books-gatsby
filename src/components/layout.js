@@ -1,4 +1,5 @@
-import React from "react"
+import React, { useRef, useEffect } from "react"
+import { gsap } from "gsap"
 import { createGlobalStyle, ThemeProvider } from "styled-components"
 import { theme } from "../utils/theme"
 import Navbar from "../components/Navigation/Navbar"
@@ -8,24 +9,27 @@ html, *, *::before, *::after {
  box-sizing: border-box;
  margin: 0;
  padding: 0;
+ scroll-behavior: smooth;
  scrollbar-width: auto;
-scrollbar-color: rgb(12, 12, 37) rgb(104, 159, 241);
+ scrollbar-color: ${({ theme }) => theme.colors.linkHover} ${({ theme }) =>
+  theme.colors.black} ;
 }
+
 *::-webkit-scrollbar {
   width: 20px;
 }
 
 *::-webkit-scrollbar-track {
-  background: rgb(80, 122, 185);
+  background: ${({ theme }) => theme.colors.black}
 }
 
 *::-webkit-scrollbar-thumb {
-  background-color: rgb(22, 22, 90);
+  background-color:${({ theme }) => theme.colors.linkHover};
   border-radius: 20px;
-  border: 3px solid rgb(26, 43, 70);
+  border: 3px solid ${({ theme }) => theme.colors.black}
 }
   body {
-    background-color: rgb(246, 246, 252);
+    background-color: ${({ theme }) => theme.colors.backgroundColor};
     min-height: 200vh;
   }
   button {
@@ -39,11 +43,24 @@ scrollbar-color: rgb(12, 12, 37) rgb(104, 159, 241);
 `
 
 export default function Layout({ children }) {
+  const navRef = useRef(null)
+
+  useEffect(() => {
+    const tl = gsap.timeline()
+    tl.from(navRef.current, {
+      duration: 3,
+      delay: 2,
+      autoAlpha: 0,
+      ease: "power3.in",
+    })
+  }, [])
   return (
-    <ThemeProvider theme={theme}>
-      <GlobalStyle />
-      {children}
-      <Navbar />
-    </ThemeProvider>
+    <div ref={navRef}>
+      <ThemeProvider theme={theme}>
+        <GlobalStyle />
+        {children}
+        <Navbar />
+      </ThemeProvider>
+    </div>
   )
 }
