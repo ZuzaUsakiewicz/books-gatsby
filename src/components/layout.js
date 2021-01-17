@@ -1,8 +1,11 @@
 import React, { useRef, useEffect } from "react"
 import { gsap } from "gsap"
+import styled from "styled-components"
 import { createGlobalStyle, ThemeProvider } from "styled-components"
 import { theme } from "../utils/theme"
 import Navbar from "../components/Navigation/Navbar"
+import AniLink from "gatsby-plugin-transition-link/AniLink"
+
 const GlobalStyle = createGlobalStyle`
 
 html, *, *::before, *::after {
@@ -11,8 +14,8 @@ html, *, *::before, *::after {
  padding: 0;
  scroll-behavior: smooth;
  scrollbar-width: auto;
- scrollbar-color: ${({ theme }) => theme.colors.linkHover} ${({ theme }) =>
-  theme.colors.black} ;
+ scrollbar-color: ${({ theme }) => theme.colors.link} ${({ theme }) =>
+  theme.colors.backgroundColor} ;
 }
 
 *::-webkit-scrollbar {
@@ -20,13 +23,13 @@ html, *, *::before, *::after {
 }
 
 *::-webkit-scrollbar-track {
-  background: ${({ theme }) => theme.colors.black}
+  background: ${({ theme }) => theme.colors.backgroundColor}
 }
 
 *::-webkit-scrollbar-thumb {
-  background-color:${({ theme }) => theme.colors.linkHover};
+  background-color:${({ theme }) => theme.colors.link};
   border-radius: 20px;
-  border: 3px solid ${({ theme }) => theme.colors.black}
+  border: 3px solid ${({ theme }) => theme.colors.backgroundColor}
 }
   body {
     background-color: ${({ theme }) => theme.colors.backgroundColor};
@@ -38,8 +41,30 @@ html, *, *::before, *::after {
   a {
     text-shadow: none;
     background-image: none;
+    color: ${({ theme }) => theme.colors.linkHover};
+  }
+  blockquote {
+    p{
+      font-size: 2.4rem;
+    }
+  }
+  figcaption,
+  cite {
+    font-size: 25px;
   }
  
+`
+
+export const Button = styled(AniLink)`
+  padding: 0.5rem 1.5rem;
+  border: none;
+  cursor: pointer;
+  color: ${({ primary, theme }) =>
+    primary ? theme.colors.navbarColor : theme.colors.main};
+  background: ${({ primary, theme }) =>
+    primary ? theme.colors.main : theme.colors.navbarColor};
+  border-radius: 6px;
+  border: 2px solid ${({ theme }) => theme.colors.navbarColor};
 `
 
 export default function Layout({ children }) {
@@ -48,10 +73,10 @@ export default function Layout({ children }) {
   useEffect(() => {
     const tl = gsap.timeline()
     tl.from(navRef.current, {
-      duration: 3,
-      delay: 2,
+      duration: 2,
+      delay: 1,
       autoAlpha: 0,
-      ease: "power3.in",
+      ease: "power4.out",
     })
   }, [])
   return (
