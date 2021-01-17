@@ -6,12 +6,16 @@ export const Logo = styled(GiEvilBook)`
   font-size: 40px;
   cursor: pointer;
   transform: ${({ backgroundScroll }) =>
-    backgroundScroll ? "scale(0.7) rotate(360deg)" : "scale(1) rotate(0)"};
+    backgroundScroll
+      ? "scale(0.7) translateX(20px)"
+      : "scale(1) translateX(0)"};
   color: ${({ theme }) => theme.colors.link};
   transition: transform 0.4s ease-in;
   @media screen and (max-width: 768px) {
     transform: ${({ backgroundScroll }) =>
-      backgroundScroll ? "scale(1) rotate(360deg)" : "scale(0.8) rotate(0)"};
+      backgroundScroll
+        ? "scale(1) translateX(20px)"
+        : "scale(0.8) translateX(0)"};
   }
 `
 
@@ -68,20 +72,19 @@ export const NavigationList = styled.ul`
 `
 
 export const NavLink = styled(AniLink)`
-  font-size: 35px;
+  font-size: 1rem;
   color: ${({ theme }) => theme.colors.link};
   border-bottom: 6px solid transparent;
   transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
   transform: ${({ backgroundScroll }) =>
     backgroundScroll ? "scale(0.7)" : "scale(1)"};
   text-transform: uppercase;
-  font-style: italic;
+  letter-spacing: 0.1rem;
   font-weight: bolder;
   @media screen and (max-width: 768px) {
     padding: 10px 0;
-    margin: 10px;
-    font-size: 60px;
-    color: ${({ theme }) => theme.colors.main};
+    margin: 5px;
+    font-size: 40px;
     transform: scale(1);
   }
   @media (max-width: 700px) and (orientation: landscape) {
@@ -99,7 +102,7 @@ export const Burger = styled.div`
   div {
     width: 2rem;
     height: 0.25rem;
-    background-color: rgb(173, 173, 173);
+    background-color: ${({ theme }) => theme.colors.link};
     transform-origin: 1px;
     transition: all 0.3s ease-in-out;
     z-index: 999;
