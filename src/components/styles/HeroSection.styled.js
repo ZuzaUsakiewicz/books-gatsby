@@ -1,18 +1,39 @@
 import styled from "styled-components"
 
 export const HeroContainer = styled.section`
-  /* margin-top: -80px; */
-  width: 100vw;
-  min-height: 100vh;
-  /* background-image: url("https://images.unsplash.com/photo-1593173945705-d6451ed5909a?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1818&q=80");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-color: rgb(179, 196, 221);
-  background-blend-mode: color-burn; */
-`
-export const BookContainer = styled.div`
   width: 100%;
-  height: 100vh;
-  background-image: url("https://images.unsplash.com/photo-1609068847274-ce0319467e83?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=670&q=80");
-  background-size: cover;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
+  padding: 5rem 1rem 0rem 1rem;
+`
+export const Title = styled.figure`
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: justify;
+  align-items: center;
+  h1 {
+    font-size: 1.5rem;
+  }
+  p {
+    font-size: 1rem;
+  }
+`
+export const ReadingImg = styled.img`
+  width: 100%;
+`
+export const BackgroundDiv = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: #0093e9;
+  background-image: linear-gradient(160deg, #0093e9 0%, #80d0c7 100%);
+  z-index: -1;
+  clip-path: ellipse(70% 20% at 35% 17%);
+  height: 70%;
 `
