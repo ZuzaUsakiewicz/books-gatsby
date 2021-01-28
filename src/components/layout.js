@@ -14,16 +14,18 @@ html, *, *::before, *::after {
  padding: 0;
  scroll-behavior: smooth;
  scrollbar-width: auto;
- scrollbar-color: ${({ theme }) => theme.colors.link} ${({ theme }) =>
-  theme.colors.backgroundColor} ;
 }
-
-*::-webkit-scrollbar {
+@media screen and (min-width: 768px) {
+  html {
+    scrollbar-color: ${({ theme }) => theme.colors.link} ${({ theme }) =>
+  theme.colors.navbarSlider} ;
+  }
+    *::-webkit-scrollbar {
   width: 20px;
 }
 
 *::-webkit-scrollbar-track {
-  background: ${({ theme }) => theme.colors.backgroundColor}
+  background: ${({ theme }) => theme.colors.navbarSlider}
 }
 
 *::-webkit-scrollbar-thumb {
@@ -31,6 +33,8 @@ html, *, *::before, *::after {
   border-radius: 20px;
   border: 3px solid ${({ theme }) => theme.colors.backgroundColor}
 }
+  }
+
   body {
     background-color: ${({ theme }) => theme.colors.backgroundColor};
     min-height: 200vh;
@@ -63,8 +67,7 @@ export const Button = styled(AniLink)`
     primary ? theme.colors.navbarColor : theme.colors.main};
   background: ${({ primary, theme }) =>
     primary ? theme.colors.main : theme.colors.navbarColor};
-  border-radius: 6px;
-  border: 2px solid ${({ theme }) => theme.colors.navbarColor};
+  border-radius: 30px;
 `
 
 export default function Layout({ children }) {
