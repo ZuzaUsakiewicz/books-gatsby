@@ -4,10 +4,11 @@ import { GiEvilBook } from "react-icons/gi"
 
 export const Logo = styled(GiEvilBook)`
   font-size: 40px;
+  z-index: 999;
   cursor: pointer;
   transform: ${({ backgroundScroll }) =>
     backgroundScroll
-      ? "scale(0.7) translateX(20px)"
+      ? "scale(0.8) translateX(20px)"
       : "scale(1) translateX(0)"};
   color: ${({ theme }) => theme.colors.link};
   transition: transform 0.4s ease-in;
@@ -21,7 +22,7 @@ export const Logo = styled(GiEvilBook)`
 
 export const Nav = styled.nav`
   width: 100%;
-  padding: 10px 40px;
+  padding: 1rem 3rem;
   height: 80px;
   background: ${({ backgroundScroll, theme }) =>
     backgroundScroll ? theme.colors.navbarColor : "transparent"};
@@ -36,9 +37,6 @@ export const Nav = styled.nav`
   box-shadow: ${({ backgroundScroll, theme }) =>
     backgroundScroll ? theme.boxShadow.main : ""};
   transition: background-color 0.6s ease-in-out, box-shadow 0.6s ease-in-out;
-  @media screen and (max-width: 768px) {
-    background-color: ${({ theme }) => theme.colors.navbarColor};
-  }
 `
 export const MenuContainer = styled.div`
   width: 60%;
@@ -57,9 +55,9 @@ export const NavigationList = styled.ul`
     margin: 0;
     flex-direction: column;
     justify-content: flex-start;
-    background-color: ${({ theme }) => theme.colors.navbarColor};
+    background-color: ${({ theme }) => theme.colors.navbarSlider};
     position: fixed;
-    top: 80px;
+    top: 0;
     right: 0;
     left: 0;
     height: 100vh;
@@ -72,14 +70,14 @@ export const NavigationList = styled.ul`
 `
 
 export const NavLink = styled(AniLink)`
-  font-size: 1rem;
+  font-size: 0.9rem;
+  font-style: italic;
   color: ${({ theme }) => theme.colors.link};
   border-bottom: 6px solid transparent;
   transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
   transform: ${({ backgroundScroll }) =>
-    backgroundScroll ? "scale(0.7)" : "scale(1)"};
+    backgroundScroll ? "scale(0.9)" : "scale(1)"};
   text-transform: uppercase;
-  letter-spacing: 0.1rem;
   font-weight: bolder;
   @media screen and (max-width: 768px) {
     padding: 10px 0;
