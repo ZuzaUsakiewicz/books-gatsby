@@ -30,7 +30,7 @@ const BookCategories = () => {
       <Categories>
         {category.map(item => {
           return (
-            <CatCard>
+            <CatCard to={`/${item.name}`}>
               <Icon>
                 {item.picture}
                 <span>{item.name}</span>
