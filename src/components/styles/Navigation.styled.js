@@ -10,9 +10,11 @@ export const Logo = styled(GiEvilBook)`
     backgroundScroll
       ? "scale(0.8) translateX(20px)"
       : "scale(1) translateX(0)"};
-  color: ${({ theme }) => theme.colors.link};
+  color: ${({ backgroundScroll, theme }) =>
+    backgroundScroll ? theme.colors.link : theme.colors.fontMainColor};
   transition: transform 0.4s ease-in;
   @media screen and (max-width: 768px) {
+    color: ${({ theme }) => theme.colors.link};
     transform: ${({ backgroundScroll }) =>
       backgroundScroll
         ? "scale(1) translateX(20px)"
@@ -37,6 +39,9 @@ export const Nav = styled.nav`
   box-shadow: ${({ backgroundScroll, theme }) =>
     backgroundScroll ? theme.boxShadow.main : ""};
   transition: background-color 0.6s ease-in-out, box-shadow 0.6s ease-in-out;
+  @media screen and (max-width: 768px) {
+    background: ${({ theme }) => theme.colors.navbarColor};
+  }
 `
 export const MenuContainer = styled.div`
   width: 60%;
@@ -72,7 +77,8 @@ export const NavigationList = styled.ul`
 export const NavLink = styled(AniLink)`
   font-size: 0.9rem;
   font-style: italic;
-  color: ${({ theme }) => theme.colors.link};
+  color: ${({ backgroundScroll, theme }) =>
+    backgroundScroll ? theme.colors.link : theme.colors.fontMainColor};
   border-bottom: 6px solid transparent;
   transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
   transform: ${({ backgroundScroll }) =>
@@ -80,6 +86,7 @@ export const NavLink = styled(AniLink)`
   text-transform: uppercase;
   font-weight: bolder;
   @media screen and (max-width: 768px) {
+    color: ${({ theme }) => theme.colors.link};
     padding: 10px 0;
     margin: 5px;
     font-size: 40px;
@@ -100,7 +107,7 @@ export const Burger = styled.div`
   div {
     width: 2rem;
     height: 0.25rem;
-    background-color: ${({ theme }) => theme.colors.link};
+    background-color: ${({ theme }) => theme.colors.main};
     transform-origin: 1px;
     transition: all 0.3s ease-in-out;
     z-index: 999;
