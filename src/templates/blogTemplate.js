@@ -1,6 +1,6 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
-import {BlogPostContainer} from '../components/styles/BlogPost.styled.js'
+import { BlogPostContainer } from "../components/styles/BlogPost.styled.js"
 
 export default function Template({
   data, // this prop will be injected by the GraphQL query below.
@@ -12,6 +12,7 @@ export default function Template({
       <div className="blog-post">
         <h1>{frontmatter.title}</h1>
         <h2>{frontmatter.date}</h2>
+        {frontmatter.tags.map(item => {return <h3>{item}</h3>})}
         <Link to="/books">Back</Link>
         <div
           className="blog-post-content"
@@ -30,6 +31,8 @@ export const pageQuery = graphql`
         date(formatString: "MMMM DD, YYYY")
         slug
         title
+        tags
+        image
       }
     }
   }
