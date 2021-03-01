@@ -1,11 +1,11 @@
 import React, { useState } from "react"
-import { GiNinjaMask } from "react-icons/gi"
 import { Burger } from "../styles/Navigation.styled"
 import {
   MenuContainer,
   NavigationList,
   NavLink,
 } from "../styles/Navigation.styled"
+import { Gi3DGlasses } from "react-icons/gi"
 
 const Hamburger = ({ backgroundScroll }) => {
   const [open, setOpen] = useState(false)
@@ -27,42 +27,52 @@ const Hamburger = ({ backgroundScroll }) => {
           <NavLink
             paintDrip
             to="/"
-            hex="#000"
+            hex="#1760cc"
             duration={1}
             onClick={() => close()}
             backgroundScroll={backgroundScroll}
           >
-            Home
+            home
           </NavLink>
           <NavLink
             paintDrip
             to="/books"
-            hex="#000"
+            hex="#1760cc"
             duration={1}
             onClick={() => close()}
             backgroundScroll={backgroundScroll}
           >
-            Books
+            books
           </NavLink>
           <NavLink
             paintDrip
             to="/about"
-            hex="#000"
+            hex="#1760cc"
             duration={1}
             onClick={() => close()}
             backgroundScroll={backgroundScroll}
           >
-            About
+            about
           </NavLink>
           <NavLink
             paintDrip
             to="/contact"
-            hex="#000"
+            hex="#1760cc"
             duration={1}
             onClick={() => close()}
             backgroundScroll={backgroundScroll}
           >
-            <GiNinjaMask />
+            contact
+          </NavLink>
+          <NavLink
+            paintDrip
+            to="/contact"
+            hex="#1760cc"
+            duration={1}
+            onClick={() => close()}
+            backgroundScroll={backgroundScroll}
+          >
+            <Gi3DGlasses />
           </NavLink>
         </NavigationList>
       </MenuContainer>
