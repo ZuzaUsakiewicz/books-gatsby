@@ -1,30 +1,36 @@
 import React from "react"
-import { BookContainer } from "../components/styles/HeroSection.styled"
+import {
+  BooksPageContainer,
+  PostsContainer,
+  PostItem,
+} from "../components/styles/BooksPage.styled"
 import AniLink from "gatsby-plugin-transition-link/AniLink"
 import { graphql } from "gatsby"
 
 export default function Books({ data }) {
   return (
-    <BookContainer>
-      <h1>Books opinion</h1>
-      {data.allMarkdownRemark.edges.map(({ node }) => (
-        <div key={node.id}>
-          <AniLink
-            paintDrip
-            to="/"
-            hex="#000"
-            duration={1}
-            to={node.frontmatter.slug}
-          >
-            Go to my {node.frontmatter.title} blog post
-          </AniLink>
-        </div>
-      ))}
-    </BookContainer>
+    <BooksPageContainer>
+      <h1>Posty</h1>
+      <PostsContainer>
+        {data.allMarkdownRemark.edges.map(({ node }) => (
+          <PostItem key={node.id}>
+            <AniLink
+              paintDrip
+              hex="#000"
+              duration={1}
+              to={node.frontmatter.slug}
+            >
+              <img src={node.frontmatter.image} />
+              Go to my {node.frontmatter.title} blog post
+            </AniLink>
+          </PostItem>
+        ))}
+      </PostsContainer>
+    </BooksPageContainer>
   )
 }
 export const query = graphql`
-  query MyQuery {
+  query myQuery {
     allMarkdownRemark {
       totalCount
       edges {
@@ -34,6 +40,7 @@ export const query = graphql`
             date
             slug
             title
+            image
           }
         }
       }
