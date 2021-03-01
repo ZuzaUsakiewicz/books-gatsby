@@ -25,7 +25,7 @@ html, *, *::before, *::after {
 }
 
 *::-webkit-scrollbar-track {
-  background: ${({ theme }) => theme.colors.navbarSlider}
+  background: ${({ theme }) => theme.colors.navbarColor};
 }
 
 *::-webkit-scrollbar-thumb {
@@ -36,8 +36,10 @@ html, *, *::before, *::after {
   }
 
   body {
-    background-color: ${({ theme }) => theme.colors.backgroundColor};
+    background-color: ${({ theme }) => theme.colors.main};
     min-height: 200vh;
+    user-select: none;
+    color: ${({ theme }) => theme.colors.mainFontColor};
   }
   button {
     cursor: pointer;
@@ -60,14 +62,14 @@ html, *, *::before, *::after {
 `
 
 export const Button = styled(AniLink)`
-  padding: 0.5rem 1.5rem;
+  padding: 0.5rem 1.8rem;
   border: none;
   cursor: pointer;
   color: ${({ primary, theme }) =>
     primary ? theme.colors.navbarColor : theme.colors.main};
   background: ${({ primary, theme }) =>
     primary ? theme.colors.main : theme.colors.navbarColor};
-  border-radius: 30px;
+  border-radius: 7px;
 `
 
 export default function Layout({ children }) {
