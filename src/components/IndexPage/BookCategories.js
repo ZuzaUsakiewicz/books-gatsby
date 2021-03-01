@@ -26,11 +26,11 @@ const category = [
 const BookCategories = () => {
   return (
     <BookCategoriesContainer>
-      <h2>Choose from many categories: </h2>
+      <h2>kategorie </h2>
       <Categories>
         {category.map(item => {
           return (
-            <CatCard to={`/${item.name}`}>
+            <CatCard paintDrip hex="#1760cc" duration={1} to={`/${item.name}`}>
               <Icon>
                 {item.picture}
                 <span>{item.name}</span>
