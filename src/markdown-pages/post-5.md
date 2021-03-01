@@ -1,7 +1,7 @@
 ---
-slug: "/books/my-sec-post"
-date: "2021-01-11"
-title: "My sec blog post"
+slug: "/books/my-super-newest-post"
+date: "2021-02-28"
+title: "My super newest blog post"
 tags: ["thriller", "horror"]
 image: "https://images.unsplash.com/photo-1612831200752-a70d1d1bb83b?ixid=MXwxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHw2fHx8ZW58MHx8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
 ---
