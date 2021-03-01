@@ -3,7 +3,7 @@ import {
   HeroContainer,
   Title,
   ReadingImg,
-  BackgroundDiv,
+  ButtonsContainer,
 } from "../styles/HeroSection.styled.js"
 import reading from "../../images/reading-time.svg"
 import { Button } from "../layout"
@@ -11,17 +11,27 @@ import { Button } from "../layout"
 const HeroSection = () => {
   return (
     <HeroContainer>
-      <BackgroundDiv></BackgroundDiv>
       <ReadingImg src={reading} alt="reading-svg" />
       <Title>
-        <h1>Start your book journey!</h1>
+        <h1>Book-Z</h1>
         <p>
-          Do you want to start reading books? Or want to read them more?
-          Whatever your goals are, let's accomplish them together! This site is
-          for you all.
+          Cześć! Miło, że tu jesteś! Jestem Zuza i wrzucam tu posty o książkach.
+          Przejdź do bloga, lub dowiedź się więcej o mnie
         </p>
-        <Button primary="true">Posts</Button>
-        <Button>About</Button>
+        <ButtonsContainer>
+          <Button
+            primary="true"
+            to="/books"
+            paintDrip
+            hex="#1760cc"
+            duration={1}
+          >
+            Books
+          </Button>
+          <Button to="/about" paintDrip hex="#1760cc" duration={1}>
+            About
+          </Button>
+        </ButtonsContainer>
       </Title>
     </HeroContainer>
   )
