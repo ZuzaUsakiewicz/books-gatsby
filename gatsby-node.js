@@ -1,3 +1,6 @@
+const path = require("path")
+
+const { paginate } = require("gatsby-awesome-pagination")
 exports.createPages = async ({ actions, graphql, reporter }) => {
   const { createPage } = actions
 
@@ -25,6 +28,14 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     reporter.panicOnBuild(`Error while running GraphQL query.`)
     return
   }
+
+  paginate({
+    createPage,
+    items: result.data.allMarkdownRemark.edges,
+    itemsPerPage: 4,
+    pathPrefix: "/books",
+    component: path.resolve("src/pages/books.js"),
+  })
 
   result.data.allMarkdownRemark.edges.forEach(({ node }) => {
     createPage({
